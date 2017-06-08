@@ -20,5 +20,5 @@ process.stdin.on("data", function(data){
     
     console.log("el nombre es "+ nombre+ " y apellido "+data+ "\n");
     process.exit();
-} );
+}
 
