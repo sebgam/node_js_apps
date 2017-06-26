@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax</title>
+</head>
+<body>
+	<button onclick="ejecutarAJAX()">Hazme click</button>
+	<div id="info"> </div>
+
+<script type ="text/javascript">
+    
+    
+//--------- valida que navegador esta usando-------	
+//		function ejecutarAJAX(){
+//			var ajaxRequest;
+//            if(window.XMLHttpRequest){
+//                ajaxRequest = new XMLHttpRequest();
+//            }else{
+//                ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
+//            }
+//		}
+
+    //-----estados del readyState-----------------
+    // 0 Peticion no ah sido inicializada
+    // 1 peticion no ah sido establacida
+    // 2 peticion a sido enviada
+    // 3 peticion esta siendo procesada
+    //4 peticion a sido finalisada 
+    
+    
+    function ejecutarAJAX(){
+    
+    var ajaxRequest = new XMLHttpRequest();
+    ajaxRequest.onreadystatechange = function(){
+        if(ajaxRequest.readyState==4 && ajaxRequest.status == 200){
+            document.getElementById('info').innerHTML = ajaxRequest.responseText;
+        }
+    }
+    
+    ajaxRequest.open("GET","document.txt",true);//---abre documento-----
+    ajaxRequest.send();
+        
+        
+}        
+</script>
+
+</body>
+</html>
