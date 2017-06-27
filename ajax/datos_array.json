@@ -1,0 +1,45 @@
+[
+    {
+    "nombre": "luis",
+    "apellido": "gamboa",
+    "edad": 25
+    },
+    
+    {
+    "nombre": "juan",
+    "apellido": "gamboa",
+    "edad": 15
+    },
+    
+    {
+    "nombre": "marcos",
+    "apellido": "gamboa",
+    "edad": 12
+    },
+    
+    {
+    "nombre": "oscar",
+    "apellido": "gamboa",
+    "edad": 30
+    },
+    
+    {
+    "nombre": "carlos",
+    "apellido": "gamboa",
+    "edad": 50
+    },
+    
+    {
+    "nombre": "vicente",
+    "apellido": "gamboa",
+    "edad": 45
+    },
+    
+    {
+    "nombre": "roberto",
+    "apellido": "gamboa",
+    "edad": 80
+    }
+    
+    
+]

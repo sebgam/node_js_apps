@@ -1,0 +1,15 @@
+{
+    "luis":{
+        "nombre":"luis",
+        "apellido":"lopez",
+        "edad":29,
+        "salario":25000
+    },
+       
+    "orlando":{
+        "nombre":"orlando",
+        "apellido":"juares",
+        "edad":29,
+        "salario":25000
+    }
+}

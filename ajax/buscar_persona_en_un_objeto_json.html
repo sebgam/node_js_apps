@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>array nested ajax json</title>
+</head>
+<body>
+    
+    <button onclick="ajax_get_json()">mostrar datos</button>
+    
+    <div id="info"></div>
+    
+    <script type="text/javascript">
+    
+    var resultado = document.getElementById("info");  //-----crea variable prar el div----  
+        
+    function ajax_get_json(){//-------funcion a ejecutar al dar click-----
+        
+        var xmlhttp;
+        
+        if(window.XMLHttpRequest){ //----------validar navegador----------
+            xmlhttp = new XMLHttpRequest();   
+        }else{
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        
+       
+        xmlhttp.onreadystatechange = function(){//--------funcion que recarga contenido---
+           
+            //-----estados del readyState-----------------
+            // 0 Peticion no ah sido inicializada
+            // 1 peticion no ah sido establacida
+            // 2 peticion a sido enviada
+            // 3 peticion esta siendo procesada
+            //4 peticion a sido finalisada 
+            if(xmlhttp.readyState == 4 && xmlhttp.status == 200){//-----comprueva estado
+               
+               
+            }
+        }
+        
+        xmlhttp.open("GET","datos_array.json",true);//--------abrir archivo JSON----
+        xmlhttp.send();//------enviar------
+    }
+    
+   
+        
+    }    
+        
+        
+        
+    </script>
+    
+</body>
+</html>
