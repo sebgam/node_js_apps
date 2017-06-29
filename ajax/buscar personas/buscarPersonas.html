@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>buscar nombre</title>
+    
+    
+</head>
+<body>
+    
+    <form action="">
+        Buscar persona: <input type="text" onkeyup="mostrarSugerencia(this.value)">
+    </form>
+    
+    <p>Suegerencia: <span id="info"></span></p>
+    
+
+    
+    <script type="text/javascript">
+    
+    
+        
+    function mostrarSugerencia(usuario){
+        
+         var resultado = document.getElementById("info");  
+        var xmlhttp;
+        
+        if(window.XMLHttpRequest){ 
+            xmlhttp = new XMLHttpRequest();   
+        }else{
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        
+        if(usuario.length === 0){
+            resultado.innerHTML = "";
+        }else{
+            xmlhttp.onreadystatechange = function(){
+            if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                resultado.innerHTML = xmlhttp.responseText;
+                     
+        }
+        
+            
+        }
+        
+        xmlhttp.open("GET","validar.php?nombre=" + usuario,true);
+        xmlhttp.send();
+    }
+        
+       
+    
+   }
+        
+    
+        
+        
+    </script>
+    
+</body>
+</html>

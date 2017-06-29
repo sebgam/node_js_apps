@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>buscar nombre en base de datos ajax</title>
+    <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    
+</head>
+<body>
+    <div class="container">
+        <br>
+        <br>
+   
+       <select onchange="mostrarUsuario(this.value)">
+           <option value="">seleccionar persona</option>
+           <option value="1">sebas</option>
+           <option value="2">beto</option>
+           <option value="3">juan</option>
+           <option value="4">carlos</option>
+           <option value="5">martha</option>
+           <option value="6">johana</option>
+           <option value="7">maria</option>
+           <option value="8">isabel</option>
+           <option value="9">pedro</option>
+           <option value="10">wilber</option>
+           <option value="11">lucho</option>
+           <option value="12">luis</option>
+       </select>   
+   <br>
+   <br>
+    <div id="info"></div>
+
+    </div>
+    
+    
+  <script type="text/javascript">
+    
+    
+        
+    function mostrarUsuario(usuario){
+        
+         var resultado = document.getElementById("info");  
+        var xmlhttp;
+        
+        if(window.XMLHttpRequest){ 
+            xmlhttp = new XMLHttpRequest();   
+        }else{
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        
+            if(usuario === ""){
+                resultado.innerHTML = "";
+            }else{
+        
+            xmlhttp.onreadystatechange = function(){
+            if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                resultado.innerHTML = xmlhttp.responseText;
+                     
+        }
+        
+            
+        }
+        }
+        
+        xmlhttp.open("GET","validar3.php?usuario=" + usuario,true);
+        xmlhttp.send();
+    }
+        
+       
+    
+   
+        
+    
+        
+        
+    </script>
+    
+</body>
+</html>
