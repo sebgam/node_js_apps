@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>buscar nombre con sugerencia en base de datos ajax</title>
+    <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    
+</head>
+<body>
+    <div class="container">
+      <br>
+      <br>
+       <form action="">
+           Buscar persona: <input type="text" placeholder="ingresar nombre" onkeyup="mostrarUsuario(this.value)">
+       </form>
+    <div id="info"></div>
+
+    </div>
+    
+    
+  <script type="text/javascript">
+    
+    
+        
+    function mostrarUsuario(nombre){
+        
+         var resultado = document.getElementById("info");  
+        var xmlhttp;
+        
+        if(window.XMLHttpRequest){ 
+            xmlhttp = new XMLHttpRequest();   
+        }else{
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        
+            if(nombre.length === ""){
+                resultado.innerHTML = "";
+            }else{
+        
+            xmlhttp.onreadystatechange = function(){
+            if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                resultado.innerHTML = xmlhttp.responseText;
+                     
+        }
+        
+            
+        }
+        }
+        
+        xmlhttp.open("GET","validar4.php?nombre=" + nombre,true);
+        xmlhttp.send();
+    }
+        
+       
+    
+   
+        
+    
+        
+        
+    </script>
+    
+</body>
+</html>
