@@ -1,17 +1,13 @@
 <?php
 require "conexion.php";
 
-$nombre = $_POST['nombre'];
-$correo = $_POST['correo'];
+$resultado = mysqli_query($con, "SELECT * FROM clientes");
 
-if(empty($nombre) || empty($correo)){
-    echo"<span style ='color: red;'>por favor ingrese su nombre y correo</span>";
-}else{
+while($fila = mysqli_fetch_assoc($resultado)){
     
-    $resultado = mysqli_query($con, "INSERT INTO clientes (nombre,correo) VALUES ('$nombre' , '$correo')");
-    echo "<span style ='color: green;'>Gracias " . $nombre . "</span>";
+    echo $fila['nombre'] . "<br>";
 }
 
-
+mysqli_close($con);
 
 ?>

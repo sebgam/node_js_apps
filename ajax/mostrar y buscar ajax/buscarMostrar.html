@@ -2,21 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>insertar datos en base de datos ajax</title>
+    <title>buscar nombre con sugerencia en base de datos ajax</title>
     <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
     
 </head>
-<body onload="mostrarClientes()">
+<body>
     <div class="container">
-        <br>
-        <br>
-   
+      <br>
+      <br>
        <form action="">
-          Buscar Cliente: <input type="text" id="texto" placeholder="Ingresar nombre">
-       </form>  
-   <br>
-   <br>
-    <div id="mostrar"></div>
+           Buscar persona: <input type="text" placeholder="ingresar nombre" onkeyup="mostrarUsuario(this.value)">
+       </form>
+    <div id="info"></div>
 
     </div>
     
@@ -25,9 +22,9 @@
     
     
         
-    function mostrarClientes(){
+    function mostrarUsuario(nombre){
         
-         var resultado = document.getElementById("mostrar");  
+         var resultado = document.getElementById("info");  
         var xmlhttp;
         
         if(window.XMLHttpRequest){ 
@@ -36,7 +33,9 @@
             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
         }
         
-       
+            if(nombre.length === ""){
+                resultado.innerHTML = "";
+            }else{
         
             xmlhttp.onreadystatechange = function(){
             if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
@@ -46,9 +45,9 @@
         
             
         }
+        }
         
-        
-        xmlhttp.open("GET","validar3.php",true);
+        xmlhttp.open("GET","validar4.php?nombre=" + nombre,true);
         xmlhttp.send();
     }
         
