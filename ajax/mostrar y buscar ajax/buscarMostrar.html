@@ -2,29 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>buscar nombre con sugerencia en base de datos ajax</title>
+    <title>mostrar buscar</title>
     <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <style>
+        .nombres{
+            color: brown;
+        }   
     
+    </style>
 </head>
-<body>
+<body onload="mostrarClientes()">
     <div class="container">
-      <br>
-      <br>
+        <br>
+        <br>
+   
        <form action="">
-           Buscar persona: <input type="text" placeholder="ingresar nombre" onkeyup="mostrarUsuario(this.value)">
-       </form>
-    <div id="info"></div>
-
+          Buscar Cliente: <input type="text" id="texto" placeholder="Ingresar nombre" onkeyup="buscarUsuario(this.value)">
+       </form>  
+   <br>
+   <br>
+   <div class="col-md-3">
+    <ul id="mostrar" class="list-group"></ul>
+   </div>        
     </div>
     
+   
     
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">informacion personal</h4>
+      </div>
+      <div class="modal-body" id="info">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+    
+   
   <script type="text/javascript">
     
-    
+    var resultado = document.getElementById("mostrar");  
         
-    function mostrarUsuario(nombre){
+    function mostrarClientes(){
         
-         var resultado = document.getElementById("info");  
+         
         var xmlhttp;
         
         if(window.XMLHttpRequest){ 
@@ -33,9 +63,6 @@
             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
         }
         
-            if(nombre.length === ""){
-                resultado.innerHTML = "";
-            }else{
         
             xmlhttp.onreadystatechange = function(){
             if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
@@ -45,20 +72,50 @@
         
             
         }
+        
+        
+        xmlhttp.open("GET","validar4.php",true);
+        xmlhttp.send();
+    }
+      
+      
+    function buscarUsuario(nombre){
+        var xmlhttp;
+        
+        if(window.XMLHttpRequest){ 
+            xmlhttp = new XMLHttpRequest();   
+        }else{
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        
+         xmlhttp.onreadystatechange = function(){
+            if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                resultado.innerHTML = xmlhttp.responseText;
+                     
+        }
+        
+            
         }
         
         xmlhttp.open("GET","validar4.php?nombre=" + nombre,true);
         xmlhttp.send();
-    }
+    }  
+      
+    function mostrarUsuario(elemento){
         
-       
+        var nombre = elemento.innerHTML;
+        var correo = elemento.nextSibling.value;
+        
+        info.innerHTML = "<b>Nombre: </b>" + nombre + "<br><b>Correo: </b>" + correo;
+    }  
+      
+    
+      
+    </script>
+   <script src="../js/jquery-3.2.1.js"></script>
+     <script src="../js/bootstrap.min.js" type="text/jscript"></script>   
+      
+   </body>
+</html>    
     
    
-        
-    
-        
-        
-    </script>
-    
-</body>
-</html>
