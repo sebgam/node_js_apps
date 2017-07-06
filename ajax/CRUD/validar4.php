@@ -27,9 +27,13 @@ if($personas=="personas"){
         $table .= '<td>'.$fila['usuario'] . '</td>' ;   
         $table .= '<td id="'.$nombreID.$fila['usuario'].'">'.$fila['nombre'] . '</td>' ;   
         $table .= '<td id="'.$emailID.$fila['usuario'].'">'.$fila['correo'] . '</td>';
+        //-----------editar-----
         $table .= '<td><button onclick="editarUsuario(this.id)" id="'.$fila['usuario'].'"  class="btn btn-default">Editar</button></td>';
+        //-------------------borrar-----------------
         $table .= '<td><button id="' .$borrar.$fila['usuario']. '"  class="btn btn-danger">Borrar</button></td>';
+        //---------------actualizar----------------
         $table .= '<td><button onclick="actualizarUsuarios('.$fila['usuario'].')" id="' .$actualizar.$fila['usuario']. '" class="btn btn-primary" style="display:none;">Actualizar</button></td>';
+        
         $table .= '</tr>';
             
     }
