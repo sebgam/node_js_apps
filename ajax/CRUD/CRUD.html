@@ -11,11 +11,49 @@
     <div class="container">
         <br>
         <br>
+           <button type="button" class="btn btn-success " data-toggle="modal" data-target="#myModal" onclick="reiniciarForm()">
+  <span class="glyphicon glyphicon-plus"></span> Crear nuevo usuario
+</button>
+           <br>
+           <br>
             <div id="wrapper">
                <div id="info"></div>
             </div>    
+            
+            
+            
+            
              
-              
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">informacion personal</h4>
+      </div>
+      <div class="modal-body" id="info">
+        <form class="form-horizontal">
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">nombre</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="nuevoUsuarioID" placeholder="nombre">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Correo</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="nuevoEmailID" placeholder="Correo">
+    </div>
+  </div>
+
+</form>
+      </div>
+      <div class="modal-footer">
+        <button onmousedown="agragarUsuario()" type="button" class="btn btn-default" data-dismiss="modal">Agragar Usuario</button>
+      </div>
+    </div>
+  </div>
+</div>       
                     
                           
                                 
@@ -97,7 +135,58 @@
           xmlhttp.send();
       }
       
+      function borrarUsuario(usuarioID){
+        var respuesta = confirm("Esta seguro de borrar este usuario");
+        var xmlhttp;
+        if(respuesta == true){
+            if(window.XMLHttpRequest){ 
+            xmlhttp = new XMLHttpRequest();   
+        }else{
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+            
+        xmlhttp.onreadystatechange = function(){
+            if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+               mostrarUsuarios();
+            }
+        }
+        
+        xmlhttp.open("GET", "validar4.php?usuarioIDEliminado="+ usuarioID , true);
+        xmlhttp.send();  
+          
+        }
+    }
       
+      
+      function agragarUsuario(){
+          
+         
+           var xmlhttp;
+          
+          if(window.XMLHttpRequest){ 
+            xmlhttp = new XMLHttpRequest();   
+        }else{
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+          
+          var nuevoUsuario = document.getElementById("nuevoUsuarioID").value;
+          var nuevoEmail = document.getElementById("nuevoEmailID").value;
+          
+          xmlhttp.onreadystatechange = function(){
+            if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+               mostrarUsuarios();
+            }
+        }
+         xmlhttp.open("GET","validar4.php?nuevoUsuario="+ nuevoUsuario + "&nuevoEmail=" + nuevoEmail , true );
+          xmlhttp.send();
+          
+      }
+      
+      function reiniciarForm(){
+           document.getElementById("nuevoUsuarioID").value = "";
+          document.getElementById("nuevoEmailID").value = "";
+          
+      }
       
     </script>
    <script src="../js/jquery-3.2.1.js"></script>
