@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tabla xml</title>
+    <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+     <button onclick="mostrarInformacion()">Mostrar informacion</button>
+    <br>
+    <br>
+    <div id="info"></div>
+    
+    
+    
+    <script type="text/javascript">
+    
+    function mostrarInformacion(){
+        
+        var xmlhttp;
+        var resultado = document.getElementById('info');
+        var arr =[];
+        
+        if(window.XMLHttpRequest){ 
+            xmlhttp = new XMLHttpRequest();   
+        }else{
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        
+        xmlhttp.onreadystatechange = function(){
+            if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+               if(xmlhttp.responseXML !== null){
+                   arr[0]=xmlhttp.responseXML.getElementsByTagName('nombre').item(0);
+                   arr[1]=xmlhttp.responseXML.getElementsByTagName('apellido').item(0);
+                   arr[2]=xmlhttp.responseXML.getElementsByTagName('edad').item(0);
+                   arr[3]=xmlhttp.responseXML.getElementsByTagName('salario').item(0);
+                   
+                   resultado.innerHTML = arr[0].firstChild.nodeValue + " " +
+                                           arr[1].firstChild.nodeValue + " "
+                                           + "Edad: " + arr[2].firstChild.nodeValue + " Salaraio: " +
+                                           arr[3].firstChild.nodeValue + " ";
+                   
+               }
+            }
+        }
+        
+        xmlhttp.open("GET", "datos.xml", true);
+        xmlhttp.send();
+    }
+    
+    
+    
+    
+    </script>
+    
+</body>
+</html>
