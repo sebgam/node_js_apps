@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lista xml</title>
+    <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <style>
+        .caja {
+           margin:20px auto 40px auto;	
+           border:1px solid #d9d9d9;
+           height:30px;
+           overflow: hidden;
+           width: 230px;
+           position:relative;
+        }
+        select {
+           background: transparent;
+           border: none;
+           font-size: 14px;
+           height: 30px;
+           padding: 5px;
+           width: 250px;
+        }
+        select:focus{ outline: none;}
+
+        .caja::after{
+            content:"\025be";
+            display:table-cell;
+            padding-top:7px;
+            text-align:center;
+            width:30px;
+            height:30px;
+            background-color:#d9d9d9;
+            position:absolute;
+            top:0;
+            right:0px;	
+            pointer-events: none;
+        }
+    
+    
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+    <br><br>
+           <div class="caja">
+              <select id="listaDeUsuarios" onchange="usuarioSeleccionado()"></select>
+            </div>  
+            
+            <br>
+            <div id="info"></div>
+    </div>
+    
+    <script type="text/javascript">
+    
+    function ejecutarAjax(){
+        var resultado = document.getElementById("listaDeUsuarios");
+        var xmlhttp;
+        
+        
+        if(window.XMLHttpRequest){ 
+            xmlhttp = new XMLHttpRequest();   
+        }else{
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        
+        xmlhttp.onreadystatechange = function(){
+            if(xmlhttp.readyState === 4 && xmlhttp.status === 200){
+                if(xmlhttp.responseXML !== null){
+                    var xmlDoc = xmlhttp.responseXML;
+                    var usuarios="";
+                    var personas = xmlDoc.getElementsByTagName("cliente");
+                    for( var i = 0; i< personas.length; i++){
+                        usuarios += "<option>" + personas[i].getElementsByTagName("nombre")[0].childNodes[0].nodeValue + "</option>";
+                    }
+                    
+                    resultado.innerHTML = usuarios;
+                }
+            }
+        }
+        xmlhttp.open("GET","datos1.xml", true);
+        xmlhttp.send();
+        
+    }
+    ejecutarAjax();
+        
+    function usuarioSeleccionado(){
+        
+       var e = document.getElementById("listaDeUsuarios");
+        var usuario = e.options[e.selectedIndex].text;
+        document.getElementById("info").innerHTML =  usuario + " a sido seleccionado";
+    }    
+        
+        
+    
+    </script>
+    <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    
+</body>
+</html>

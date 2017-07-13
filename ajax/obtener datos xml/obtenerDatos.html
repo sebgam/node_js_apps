@@ -5,7 +5,7 @@
     <title>datos xml</title>
 </head>
 <body>
-    <button onclick="mostrarInformacion()">Mostrar informacion</button>
+    <button onclick="mostrarInformacion()">Mostrar informacion </button>
     <br>
     <br>
     <div id="info"></div>
@@ -20,6 +20,7 @@
         var resultado = document.getElementById('info');
         var arr =[];
         
+        
         if(window.XMLHttpRequest){ 
             xmlhttp = new XMLHttpRequest();   
         }else{
@@ -27,7 +28,7 @@
         }
         
         xmlhttp.onreadystatechange = function(){
-            if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+            if(xmlhttp.readyState === 4 && xmlhttp.status === 200){
                if(xmlhttp.responseXML !== null){
                    arr[0]=xmlhttp.responseXML.getElementsByTagName('nombre').item(0);
                    arr[1]=xmlhttp.responseXML.getElementsByTagName('apellido').item(0);
@@ -39,11 +40,13 @@
                                            + "Edad: " + arr[2].firstChild.nodeValue + " Salaraio: " +
                                            arr[3].firstChild.nodeValue + " ";
                    
+               }else{
+                   resultado.innerHTML = "error";
                }
             }
         }
         
-        xmlhttp.open("GET", "datos.xml", true);
+        xmlhttp.open("GET", "nombres.xml", true);
         xmlhttp.send();
     }
     

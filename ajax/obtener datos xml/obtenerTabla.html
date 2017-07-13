@@ -6,20 +6,22 @@
     <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-     <button onclick="mostrarInformacion()">Mostrar informacion</button>
+    <div class="container">
+    <br><br>
+     <button onclick="ejecutarAjax()">Mostrar informacion</button>
     <br>
     <br>
-    <div id="info"></div>
+    <table id="info" class="table table-bordered"></table>
     
-    
+    </div>
     
     <script type="text/javascript">
     
-    function mostrarInformacion(){
+    function ejecutarAjax(){
         
+        var resultado = document.getElementById("info");
         var xmlhttp;
-        var resultado = document.getElementById('info');
-        var arr =[];
+        
         
         if(window.XMLHttpRequest){ 
             xmlhttp = new XMLHttpRequest();   
@@ -28,26 +30,26 @@
         }
         
         xmlhttp.onreadystatechange = function(){
-            if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-               if(xmlhttp.responseXML !== null){
-                   arr[0]=xmlhttp.responseXML.getElementsByTagName('nombre').item(0);
-                   arr[1]=xmlhttp.responseXML.getElementsByTagName('apellido').item(0);
-                   arr[2]=xmlhttp.responseXML.getElementsByTagName('edad').item(0);
-                   arr[3]=xmlhttp.responseXML.getElementsByTagName('salario').item(0);
-                   
-                   resultado.innerHTML = arr[0].firstChild.nodeValue + " " +
-                                           arr[1].firstChild.nodeValue + " "
-                                           + "Edad: " + arr[2].firstChild.nodeValue + " Salaraio: " +
-                                           arr[3].firstChild.nodeValue + " ";
-                   
-               }
+            if(xmlhttp.readyState === 4 && xmlhttp.status === 200){
+                if(xmlhttp.responseXML !== null){
+                   var xmlDoc = xmlhttp.responseXML; 
+                    var tabla = "<tr><th>Nombre</th><th>Apellido</th></tr>";
+                    var persona = xmlDoc.getElementsByTagName("cliente");
+                    
+                    for( var i = 0 ; i< persona.length; i++){
+                        tabla += "<tr><td>" + persona[i].getElementsByTagName("nombre")[0].childNodes[0].nodeValue + "</td><td>" + persona[i].getElementsByTagName("apellido")[0].childNodes[0].nodeValue + "</td></tr>";
+                    }
+                    
+                    resultado.innerHTML = tabla;
+                    
+                }
             }
         }
         
-        xmlhttp.open("GET", "datos.xml", true);
+        xmlhttp.open("GET", "datos1.xml", true);
         xmlhttp.send();
+        
     }
-    
     
     
     

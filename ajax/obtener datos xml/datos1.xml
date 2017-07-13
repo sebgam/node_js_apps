@@ -1,0 +1,59 @@
+<?xml version = "1.0" encoding="UTF-8" ?>
+
+<clientes>
+<cliente>
+    <nombre>sebastian</nombre>
+    <apellido>gamboa</apellido>
+    <edad>20</edad>
+    <salario>3000</salario>
+</cliente>
+
+<cliente>
+    <nombre>oscar</nombre>
+    <apellido>gamboa</apellido>
+    <edad>20</edad>
+    <salario>3000</salario>
+</cliente>
+<cliente>
+    <nombre>carlos</nombre>
+    <apellido>gamboa</apellido>
+    <edad>20</edad>
+    <salario>3000</salario>
+</cliente>
+<cliente>
+    <nombre>manuel</nombre>
+    <apellido>gamboa</apellido>
+    <edad>20</edad>
+    <salario>3000</salario>
+</cliente>
+<cliente>
+    <nombre>wil</nombre>
+    <apellido>gamboa</apellido>
+    <edad>20</edad>
+    <salario>3000</salario>
+</cliente>
+<cliente>
+    <nombre>maria</nombre>
+    <apellido>gamboa</apellido>
+    <edad>20</edad>
+    <salario>3000</salario>
+</cliente>
+<cliente>
+    <nombre>marly</nombre>
+    <apellido>gamboa</apellido>
+    <edad>20</edad>
+    <salario>3000</salario>
+</cliente>
+<cliente>
+    <nombre>carolina</nombre>
+    <apellido>gamboa</apellido>
+    <edad>20</edad>
+    <salario>3000</salario>
+</cliente>
+<cliente>
+    <nombre>juana</nombre>
+    <apellido>gamboa</apellido>
+    <edad>20</edad>
+    <salario>3000</salario>
+</cliente>
+</clientes>

@@ -1,0 +1,9 @@
+<?xml version = "1.0" encoding="UTF-8" ?>
+
+
+<nombres>
+    <nombre>juan</nombre>
+    <apellido>osorio</apellido>
+    <edad>25</edad>
+    <salario>7000</salario>
+</nombres>
