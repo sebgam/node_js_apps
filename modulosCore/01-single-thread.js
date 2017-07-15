@@ -2,6 +2,8 @@
 
 function singleThread(){
 
+process.argv[2] = 'Hola putos'
+
 console.log('------------------------------------------------')
 console.log('         EL PROCESO DE NODE.JS        ')
 console.log('Id del proceso..............' + process.pid)
@@ -16,6 +18,7 @@ console.log('Tiempo activo de node.......' + process.uptime())
 console.log('Argumentos del producto.....' + process.argv)
 console.log('------------------------------------------------')
 
+console.log( process.argv[0],process.argv[1],process.argv[2])
 
 }
 
