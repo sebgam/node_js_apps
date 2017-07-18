@@ -15,5 +15,5 @@ pub.on('myevent',function(message){
 
 
 pub.emit('myevent','volviendo a emitir')
-//pub.removeAllListeners('myevent')
+pub.removeAllListeners('myevent')
 pub.emit('myevent','volviendo a emitir 4 ves')
