@@ -21,7 +21,7 @@ Clock.prototype.theTime =function(){
 		sec = date.getSeconds(),
 		msg = hrs + ":"+min+ ":"+sec
 
-console.log(msg)
+console.log('la hora es ' + msg)
 
 }
 
