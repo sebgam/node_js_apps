@@ -25,7 +25,7 @@ console.log('la hora es ' + msg)
 
 }
 
-
+//TIMERS
 
 var cucu = new Clock()
 
