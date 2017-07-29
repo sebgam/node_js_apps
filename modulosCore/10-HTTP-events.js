@@ -9,7 +9,7 @@ function webServer(req,res)
 }
 
 http
-	.createServer(webServer)
+	
 	.listen(3000,"localhost")
 
 console.log('servidor corriendo en  http://localhost:3000/')
