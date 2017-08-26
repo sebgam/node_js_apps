@@ -20,15 +20,29 @@ function ejs(req, res, next){
 	res.render('index', locals)
 }	
 
+function error404(req, res, next){
+	let error = new Error(),
+		locals ={
+			title: "error 404",
+			description : "recurso no encontrado",
+			error : error
+		}
+	error.status = 404	
+	res.render('error',locals)	
+	next()
+}
+
 router
 	.get('/', (req, res) => {
 		res.end(`
 			<h1>configuracion terminada de app en expres </h1>
 		`)
-})
+	})
 	.get('/jade', jade)
 
 	.get('/ejs', ejs)
+
+	.use(error404)
 
 
 module.exports = router	

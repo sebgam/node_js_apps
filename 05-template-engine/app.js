@@ -13,8 +13,8 @@ var express = require('express'),
 app
 	//configurando app
 	.set('views' , viewDir)
-	//.set('view engine' , 'jade')
-	.set('view engine' , 'ejs')
+	.set('view engine' , 'jade')
+	//.set('view engine' , 'ejs')
 	.set('port', port)
 	//ejecutando middlewares
 	.use(favicon(faviconUrl))

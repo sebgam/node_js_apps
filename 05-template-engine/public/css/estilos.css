@@ -64,3 +64,14 @@ li{
 	float: left;
 	width: 25%; 
 }
+
+.error{
+	display: block;
+	margin: auto;
+	padding: 1rem;
+	width: 90%;
+	overflow-x: scroll;
+	text-align: left;
+	background-color: #303030;
+	color: #88bd01;
+}
