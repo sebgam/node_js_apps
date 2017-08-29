@@ -1,0 +1,77 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+html{
+	font-family: arial;
+	font-size: 16px;
+	color: #fff;
+	background-color: black;
+	text-align: center;
+}
+
+a:hover{
+	color: #DB2723;	
+}
+
+li{
+	list-style-position: inside; 
+}
+
+#jade, #ejs{
+	margin-top: 15px;
+	font-size: 2rem;
+	border:2px solid #DB2723 ;
+	box-shadow: 0px 0px 20px 0px #DB2723;
+}
+
+.container{
+	margin:auto;
+	padding: 1rem;
+	width: 80%;
+}
+
+#logo-node{
+	margin:auto;
+	height: 150px;
+	width: 450px;
+	background: transparent url('../img/CapturaGRANDE.PNG') no-repeat center;
+	background-size: contain;
+
+}
+
+.span{
+	color: #DB2723;
+	
+}
+
+.boton{
+	border: none;
+	font-size: 25px;
+	color: white;
+	background-color:#DB2723 ;
+	padding: 5px;
+	border-radius: 5%;
+}
+
+.boton:hover{
+	background: white;
+	color:#DB2723;
+}
+
+.item{
+	float: left;
+	width: 25%; 
+}
+
+.error{
+	display: block;
+	margin: auto;
+	padding: 1rem;
+	width: 90%;
+	overflow-x: scroll;
+	text-align: left;
+	background-color: #303030;
+	color: #88bd01;
+}
