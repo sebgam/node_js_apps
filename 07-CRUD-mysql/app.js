@@ -2,7 +2,7 @@
 
 var express = require('express'),
 	favicon = require('serve-favicon'),
-	bodyParser = require('body-parser')
+	bodyParser = require('body-parser'),
 	morgan = require('morgan'),
 	routes = require('./route/index'),
 	faviconUrl = `${__dirname}/public/img/Temptation2.png`,
@@ -18,7 +18,7 @@ app
 	.set('port', port)
 	.use(favicon(faviconUrl))
 	.use( bodyParser.json() )
-	.use( bodyParser.ulrencoded({extended: false}) )
+	.use( bodyParser.urlencoded({extended: false}) )
 	.use(morgan('dev'))
 	.use(publicdir)
 	.use(routes)

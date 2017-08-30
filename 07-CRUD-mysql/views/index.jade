@@ -2,76 +2,8 @@ extends layout.jade
 
 block content
 
-  article#jade.container
-    h1
-        a(href="#{link}" , target="_black") #{title}
-    br
-    p= description    
-
-  article.container
-    h2 estructura basica jade
-    br
-    p este archivo html es generado con el motor de plantillas jade
-    br
-    p
-      |para concatenar contenido
-      |en varias lineas
-      |se unas el siguiente simbolo <b style="color:red;">|</b> 
-    br
-  include logo
-
-  article.container
-    p.
-      asi es como se interpola lines en jade 
-      se puede escribir en varias lineas y solo vasta con poner un punto(.)
-      el la P leer documentacion #[a(href="http://jadelang.net/reference/interpolation/", target="_black") interpolacion] interpolar es meter #[b(style="color:red;") html]  dentro de parafos en #[span.span jade]
-    br
-    button#presioname.boton presioname
-      script.
-        document.querySelector('#presioname').onclick = function(){
-          alert('precionaste el boton')
-          this.style.color = "black"  
-        }    
-    -var nombre = 'Jade'
-    br
-    br
-    p hola estas en el curso de node en el tema #{nombre}
-    br
-    -var fecha = new Date()
-    -var hora = fecha.getHours()
-
-    if (hora < 12 )
-      p la hora es #{hora} AM
-    else
-      p la hora es #{hora} PM  
-
-    -var estaciones =['primavera','verano','otoño','invierno']
-
-    h2 estaciones del año
-    ul
-      each estacion in estaciones
-        li= estacion
-    
-    //- los mixings son funciones en jade
-  mixin mesesEstacionesMexico(estacion,meses)
-    div.item
-      h3= estacion
-      br
-      ul
-        each mes in meses
-          li= mes 
-
-  article.container
-    h2 estaciones del año en Mexico
-    br
-    +mesesEstacionesMexico(estaciones[0],['abril','mayo','junio'])
-    +mesesEstacionesMexico(estaciones[1],['julio','agosto','septiembre'])
-    +mesesEstacionesMexico(estaciones[2],['octubre','noviembre','diciembre'])
-    +mesesEstacionesMexico(estaciones[3],['enero','marzo','abril'])
-
-    -var a = 0.7
-    if (a < 0.7)
-      p yes
-    else
-      p no  
-               
+  section.container
+    div.item.logo
+      h1 entrega inmediata
+      h2 por secciones
+    div.newCar    
