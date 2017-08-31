@@ -17,18 +17,21 @@ function error404(req, res, next){
 	next()
 }
 
+
+
 router
+	.use(movies)
 	.get('/', (req, res, next) => {
 		req.getConnection((err, movies)=>{
 			movies.query('SELECT * FROM movie', (err, rows)=>{
 				let locals = {
 					title : 'lista Peliculas',
-					datos : rows 
+					data : rows 
 				}	
 				res.render('index',locals)
 			})
 		})
-		next()
+		//next()
 	})
 
 	.use(error404)
