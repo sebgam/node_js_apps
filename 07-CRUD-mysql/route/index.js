@@ -38,6 +38,23 @@ router
 		res.render('add-movie',{title : 'Agregar Pelicula'})
 	})
 
+	.post('/', (req,res,next)=>{
+		req.getConnection((err, movies)=>{
+			let movie = {
+				movie_id : req.body.movie_id,
+				title : req.body.title,
+				release_year : req.body.release_year,
+				rating : req.body.rating,
+				image : req.body.image
+			}
+			console.log(movie)
+
+			movies.query('INSERT INTO movie SET ?', movie, (err, rows)=>{
+				return(err) ? res.redirect('/agregar') : res.redirect('/')	
+			})
+		})
+	})
+
 	.use(error404)
 
 

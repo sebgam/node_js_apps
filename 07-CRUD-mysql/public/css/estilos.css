@@ -7,6 +7,12 @@ a, h1, label{
 
 }
 
+fieldset{
+	padding: 1rem;
+	border: medium solid white;
+}
+
+
 a:hover{
 	opacity:.75;
 }
@@ -76,5 +82,13 @@ a:hover{
 }
 
 .add{
-	background: #B11F1C;
+	background: #2ecc71;
+}
+
+.edit{
+	background: #2980b9;
+}
+
+.delete{
+	background: 
 }
