@@ -1,0 +1,80 @@
+html{
+	background-color: #1d1d1d;
+}
+
+a, h1, label{
+	color: #DB2723;
+
+}
+
+a:hover{
+	opacity:.75;
+}
+
+.logo{
+	display: block;
+	margin: 1rem auto;
+	width: 450px;
+	height: 150px;
+	vertical-align: bottom;
+	background: url("../img/CapturaGRANDE.PNG") no-repeat center;
+	background-size: contain;
+}
+
+.error{
+	color: white;
+	background: #DB2723;
+		font-size: 18px;
+}
+
+.description{
+	color: white;
+}
+
+.titulo{
+	text-align: center;
+	margin:auto;
+	text-decoration: none;
+	text-transform: uppercase;
+
+}
+
+.poster{
+	max-width: 150px;
+}
+
+.table{
+	width: 100%;
+}
+
+.table td, .table th{
+	padding: 1rem;
+}
+
+.table tr:first-child{
+	background-color: #292623;
+	color: #DB2723;
+}
+
+.table tr:nth-child(even){
+	background-color: #ccc;
+}
+
+.table tr:nth-child(odd):not(:first-child){
+	background-color: #eee;
+}
+
+.button{
+	padding:  .5rem 1rem;
+	color: #fff;
+	background-color: #DB2723;
+	cursor: pointer;
+}
+
+.button:hover{
+	opacity: .75;
+}
+
+.add{
+	background: #B11F1C;
+}
