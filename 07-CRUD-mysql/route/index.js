@@ -55,6 +55,27 @@ router
 		})
 	})
 
+	.get('/editar/:movie_id', (req,res,next)=>{
+		let movie_id = req.params.movie_id
+
+		req.getConnection((err,movies)=>{
+			movies.query('SELECT * FROM movie WHERE movie_id = ? ', movie_id, (err,rows)=>{
+				if(err)
+				{
+					throw(err)
+				}else{
+					let locals ={
+						title: 'editar pelicula',
+						data : rows
+					}
+
+					res.render('edit-movie',locals)
+				}
+
+			})
+		})
+	})
+
 	.use(error404)
 
 
