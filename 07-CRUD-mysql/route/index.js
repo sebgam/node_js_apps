@@ -24,11 +24,15 @@ router
 	.get('/', (req, res, next) => {
 		req.getConnection((err, movies)=>{
 			movies.query('SELECT * FROM movie', (err, rows)=>{
-				let locals = {
+				if(err){
+					next( new Error('No hay registros de Peliculas'))
+				}else{
+					let locals = {
 					title : 'lista Peliculas',
 					data : rows 
+					}	
+					res.render('index',locals)
 				}	
-				res.render('index',locals)
 			})
 		})
 		//next()
@@ -62,7 +66,7 @@ router
 			movies.query('SELECT * FROM movie WHERE movie_id = ? ', movie_id, (err,rows)=>{
 				if(err)
 				{
-					throw(err)
+					next( new Error('No hay registros de Peliculas'))
 				}else{
 					let locals ={
 						title: 'editar pelicula',
@@ -72,6 +76,33 @@ router
 					res.render('edit-movie',locals)
 				}
 
+			})
+		})
+	})
+
+	.post('/actualizar/:cliente_id',(req,res,next)=>{
+		req.getConnection((err, movies)=>{
+			let movie = {
+				movie_id : req.body.movie_id,
+				title : req.body.title,
+				release_year : req.body.release_year,
+				rating : req.body.rating,
+				image : req.body.image
+			}
+			console.log(movie)
+
+			movies.query('UPDATE movie SET ? WHERE movie_id = ?', [movie, movie.movie_id], (err, rows)=>{
+				return(err) ? next( new Error('Error al actualizar')) : res.redirect('/')	
+			})
+		})
+	})
+
+	.post('/eliminar/:movie_id',(req,res,next)=>{
+		let movie_id = req.params.movie_id
+
+		req.getConnection((err,movies)=>{
+			movies.query('DELETE FROM movie WHERE movie_id = ? ', movie_id, (err,rows)=>{
+				return (err) ? next(new Error('registro no encontrado')) : res.redirect('/')
 			})
 		})
 	})
