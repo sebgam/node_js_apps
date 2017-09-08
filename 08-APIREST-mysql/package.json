@@ -1,0 +1,27 @@
+{
+  "name": "api-drud-mysql",
+  "version": "0.0.1",
+  "description": "api crud con mysql, express y node.js",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "supervisor server.js"
+  },
+  "keywords": [
+    "node",
+    "api",
+    "crud"
+  ],
+  "author": "sebas",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "express-myconnection": "^1.0.4",
+    "jade": "^1.11.0",
+    "morgan": "^1.8.2",
+    "mysql": "^2.14.1",
+    "responsimple": "^1.0.1",
+    "serve-favicon": "^2.4.3"
+  }
+}
