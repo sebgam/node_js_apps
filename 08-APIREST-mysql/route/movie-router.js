@@ -1,5 +1,5 @@
 'use strict'
-var movies = require('../models/movies'),
+var movies = require('../models/movie-connection'),
 	express = require('express'),
 	router = express.Router()
 
