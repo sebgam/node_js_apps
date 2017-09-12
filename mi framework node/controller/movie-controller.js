@@ -49,7 +49,7 @@ var MovieModel = require('../models/movie-model'),
 
 			})
 	}
-	/*
+
 	MovieController.insert = (req,res,next)=>{
 		let movie = {
 				movie_id : req.body.movie_id,
@@ -74,8 +74,7 @@ var MovieModel = require('../models/movie-model'),
 			}
 		})	
 	}
-	*/
-	/*
+
 	MovieController.update = (req,res,next)=>{
 		let movie = {
 				movie_id : req.body.movie_id,
@@ -90,32 +89,6 @@ var MovieModel = require('../models/movie-model'),
 			if(err){
 				let locals ={
 							title: `Error actualizar registro en la base de datos ${movie.movie_id}`,
-							description : "Error sintaxys SQL",
-							error : err
-						}
-						
-					res.render('error',locals)	
-			}else{
-				res.redirect('/')
-			}
-		})		
-	}
-	*/
-	//insert and update
-	MovieController.save = (req,res,next)=>{
-		let movie = {
-				movie_id : req.body.movie_id,
-				title : req.body.title,
-				release_year : req.body.release_year,
-				rating : req.body.rating,
-				image : req.body.image
-			}
-			console.log(movie)
-
-		MovieModel.save(movie,(err)=>{
-			if(err){
-				let locals ={
-							title: `Error al salvar registro en la base de datos ${movie.movie_id}`,
 							description : "Error sintaxys SQL",
 							error : err
 						}
