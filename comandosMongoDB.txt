@@ -1,0 +1,18 @@
+mongo es lazy, flojo puede crearse al momento de ser requerido
+mongod -> ejecutamos el servicio de mongo
+mongo -> ejecutamos el cliente de la terminal de comandos
+show dbs -> muestra bases de datos
+show collections -> muestra colecciones de la base de datos
+use perros-> usar base de datos perros y si no existe la crea
+
+nombre-perros
+
+
+db.razas -> crea coleccion
+db.razas.insert({"nombre":"lo que sea"}) -> inserta campo en coleccion
+db.razas.count -> cuenta las colecciones
+db.raza.save({ "nombre" : "sebas"}) -> guarda o actualiza
+db.raza.remove({ "nombre": "sebas"}) -> elimina elemento
+db.raza.find() -> muestra todas las colecciones
+db.raza.findOne({ "nombre" : "sebas"}) -> muestra solo un campo existente puesto como parametro
+
