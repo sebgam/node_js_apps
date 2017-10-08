@@ -3,15 +3,17 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Chat express y socket io</title>
-	<link rel="stylesheet" type="text/css" href="/stilos.css">
+	<link rel="stylesheet" type="text/css" href="/chat.css">
 </head>
 <body>
 	<ul id="chat"></ul>
-	<form id="chatForm">
-		<input type="text" required id="message-text" autocomplete="off">
+	<form id="chat-form">
+		<input type="text" id="message-text" autocomplete="off" required >
 		<button>Enviar</button>
 	</form>
 
-	
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="/chat.js"></script>
 </body>
 </html>
